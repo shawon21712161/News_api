@@ -5,11 +5,11 @@ const handleCatagory =async () =>{
   const data = await response.json()
 
   const tabContainer = document.getElementById('tab-conatainer');
-
-  data.data.news_category.slice(0,3).forEach((category)=>{
+  const trimedData = data.data.news_category.slice(0,3);
+  trimedData.forEach((category)=>{
     const div = document.createElement ('div');
     div.innerHTML=`
-    <a class="tab">${category.category_name}</a>
+    <a onclick="handleLoadNews(${category.category_id})" class="tab">${category.category_name}</a>
     `
     tabContainer.appendChild(div)
   }
@@ -17,6 +17,13 @@ const handleCatagory =async () =>{
   console.log(data.data.news_category);
 
 }
+
+const handleLoadNews = async (categoryId)=>{
+    const response = await fetch(`https://openapi.programming-hero.com/api/news/category/0${categoryId}`);
+    const data = await response.json()
+    console.log(data);
+}
+
 
 handleCatagory();
 
