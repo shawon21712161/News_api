@@ -23,6 +23,7 @@ const handleLoadNews = async (categoryId)=>{
     const data = await response.json()
     // console.log(data.data);
   const cardContain = document.getElementById('card-contain')
+  cardContain.innerHTML='';
     data.data.forEach((news)=>{
       console.log(news);
 
@@ -42,7 +43,7 @@ const handleLoadNews = async (categoryId)=>{
               <img src= ${news?.author?.img} alt="">
             </div>
             <h4 class="text-xl">${news?.author?.name}</h4>
-            <h6>published_date : ${news?.author?.published_date}</h6>
+            <h6><span>published_date :</span> ${news?.author?.published_date}</h6>
           </div> 
         </div>
         <div class="card-actions justify-end">
@@ -53,9 +54,11 @@ const handleLoadNews = async (categoryId)=>{
     </div>
       `;
       cardContain.appendChild(div)
+      
     })
 }
 
 
 handleCatagory();
+handleLoadNews(1)
 
