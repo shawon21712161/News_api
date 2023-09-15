@@ -42,8 +42,11 @@ const handleLoadNews = async (categoryId)=>{
             <div class="bg-neutral-focus text-neutral-content rounded-full w-12 m-1">
               <img src= ${news?.author?.img} alt="">
             </div>
-            <h4 class="text-xl">${news?.author?.name}</h4>
-            <h6><span>published_date :</span> ${news?.author?.published_date}</h6>
+            
+            <h4 class="text-xl">${news?.author?.name}</h4> 
+            
+            <h6 class = "block"><small>published_date : ${news?.author?.published_date}</small></h6>
+            
           </div> 
         </div>
         <div class="card-actions justify-end">
@@ -60,5 +63,5 @@ const handleLoadNews = async (categoryId)=>{
 
 
 handleCatagory();
-handleLoadNews(1)
+handleLoadNews(2)
 
